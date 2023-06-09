@@ -24,6 +24,14 @@ digitalData = {
      }
   }
 };
+window.appEventData = window.appEventData||[];
+
+const pageview = {
+  'event': 'pageview',
+  'pageName': resource,
+  pageURL : window.location.href
+              
+};
 // dataLayer.push({
 //     'event': 'pageview',
 //     'url': window.location.href
@@ -39,6 +47,7 @@ digitalData = {
 // }
 
 window.dataLayer = window.dataLayer || [];
+
 window.emailArray = [];
 let anon= "anonymous";
 function getSession() {
@@ -59,6 +68,10 @@ function pushUserIdToDataLayer() {
     'event': 'pageview',
     'url': window.location.href
   });
+
+
+  document.dispatchEvent(new CustomEvent('pageview'));
+  window.appEventData.splice(0,0,pageview);
   
 
   analytics.identify( {
@@ -127,6 +140,11 @@ getSession().then((emailId) => {
       'event': 'pageview',
       'url': window.location.href
     });
+
+    
+    document.dispatchEvent(new CustomEvent('pageview'));
+    window.appEventData.splice(0,0,{'event': 'pageview'});
+    console.log("test kuuta")
     
   }
 
