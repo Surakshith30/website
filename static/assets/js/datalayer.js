@@ -68,17 +68,18 @@ function pushUserIdToDataLayer() {
   // else{
   //   window.dataLayer.push({'event': 'user_id',"user_id": anon});
   // }
- 
+ //GTM dataLayer
   window.dataLayer.push({
     'event': 'pageview',
     'url': window.location.href
   });
 
-
-  document.dispatchEvent(new CustomEvent('pageview'));
-  window.appEventData.splice(0,0,pageview);
+//dataLayer
+document.dispatchEvent(new CustomEvent('pageview'));
+window.appEventData.splice(0,0,pageview);
+console.log("test kurta");
   
-
+//segment dataLayer
   analytics.identify( {
     email: window.emailArray[0]
   });
@@ -148,8 +149,8 @@ getSession().then((emailId) => {
 
     
     document.dispatchEvent(new CustomEvent('pageview'));
-    window.appEventData.splice(0,0,{'event': 'pageview'});
-    console.log("test kuuta")
+    window.appEventData.splice(0,0,page);
+    console.log("test kurma");
     
   }
 
@@ -160,3 +161,4 @@ getSession().then((emailId) => {
   let displayEmail = document.querySelector("#email");
 displayEmail.textContent = email1;
 });
+console.log("getting");

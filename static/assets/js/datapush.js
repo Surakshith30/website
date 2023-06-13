@@ -50,6 +50,10 @@ if(prodName){
 }
 console.log("adobe",  ecommerce.products.product_id);
 
+window.appEventData.splice(1,0,{
+
+})
+
 // Segment analytics track code
 analytics.track("Product view", {
   'product_name': prodName,
@@ -85,18 +89,28 @@ function setDataLayerValues(productName, productPrice, productID, productCategor
       
     }
   });
+  document.dispatchEvent(new CustomEvent('product view'));
+  window.appEventData.splice(1,0,{
+    'event':'product view',
+    'page' :"product_page",
+    'product_name': productName,
+    'product_price': newProdPrice,
+    'product_id' : productID,
+    'product_category': productCategory,
+    'item_subcategory': subcategory
+  })
 }
 
 window.onload = setDataLayerValues(prodName ,newProdPrice, stockId , textBeforeSlash, subcategory);
 
 
 
-digitalData={
-  'event': 'Pageview',
-  'user': [{'profile':[{'attributes':'loggedin', 'profileInfo':"xyz"}]}]
-  }
+// digitalData={
+//   'event': 'Pageview',
+//   'user': [{'profile':[{'attributes':'loggedin', 'profileInfo':"xyz"}]}]
+//   }
 
-  var digitalData = {
-    'event': 'Pageview',
-    'user': [{'profile': {'attributes':'loggedin', 'profileInfo':"xyz"}}]
-  };
+//   var digitalData = {
+//     'event': 'Pageview',
+//     'user': [{'profile': {'attributes':'loggedin', 'profileInfo':"xyz"}}]
+//   };
