@@ -32,6 +32,11 @@ const pageview = {
   pageURL : window.location.href
               
 };
+
+// window.dispatchEvent(new CustomEvent('pageview'));
+// document.appEventData.splice(1,1,pageview)
+
+
 // dataLayer.push({
 //     'event': 'pageview',
 //     'url': window.location.href
