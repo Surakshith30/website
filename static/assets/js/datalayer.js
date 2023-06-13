@@ -71,14 +71,19 @@ function pushUserIdToDataLayer() {
 
 //dataLayer
 document.dispatchEvent(new CustomEvent('pageview'));
-window.appEventData.splice(0,0,pageview);
-console.log("test kurta");
+window.appEventData.splice(0,0,{
+  'event': 'pageview',
+  'pageName': resource,
+  pageURL : window.location.href
+              
+});
+
   
 //segment dataLayer
   analytics.identify( {
     email: window.emailArray[0]
   });
- 
+  console.log("test kurta");
   // var prodName = document.querySelector("h1.name").innerHTML;
   // console.log(prodName);
 
@@ -144,7 +149,12 @@ getSession().then((emailId) => {
 
     
     document.dispatchEvent(new CustomEvent('pageview'));
-    window.appEventData.splice(0,0,page);
+    window.appEventData.splice(0,0,{
+      'event': 'pageview',
+      'pageName': resource,
+      pageURL : window.location.href
+                  
+    });
     console.log("test kurma");
     
   }

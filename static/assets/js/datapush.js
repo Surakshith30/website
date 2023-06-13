@@ -55,13 +55,13 @@ window.appEventData.splice(1,0,{
 })
 
 // Segment analytics track code
-analytics.track("Product view", {
-  'product_name': prodName,
-    'product_price': newProdPrice,
-    'product_id' : stockId,
-    'category': textBeforeSlash,
-    'subcategory': subcategory
-});
+// analytics.track("Product view", {
+//   'product_name': prodName,
+//     'product_price': newProdPrice,
+//     'product_id' : stockId,
+//     'category': textBeforeSlash,
+//     'subcategory': subcategory
+// });
 
 
 
