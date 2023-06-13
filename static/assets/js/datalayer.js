@@ -70,8 +70,9 @@ function pushUserIdToDataLayer() {
   });
 
 //dataLayer
-  document.dispatchEvent(new CustomEvent('pageview'));
-  window.appEventData.splice(0,0,pageview);
+document.dispatchEvent(new CustomEvent('pageview'));
+window.appEventData.splice(0,0,pageview);
+console.log("test kurta");
   
 //segment dataLayer
   analytics.identify( {
