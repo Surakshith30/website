@@ -113,6 +113,16 @@ dataLayer.push({
   }
 });
 
+
+document.dispatchEvent(new CustomEvent('addToCart'));
+window.appEventData.push({
+  'event': 'addToCart',
+  'product_id':product_id,
+  'product_name':product_name,
+  'product_price':product_price
+
+})
+
 addProductToCart();
 }
 

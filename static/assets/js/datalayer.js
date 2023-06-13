@@ -33,8 +33,7 @@ const pageview = {
               
 };
 
-// window.dispatchEvent(new CustomEvent('pageview'));
-// document.appEventData.splice(1,1,pageview)
+
 
 
 // dataLayer.push({
