@@ -90,7 +90,7 @@ function setDataLayerValues(productName, productPrice, productID, productCategor
     }
   });
   document.dispatchEvent(new CustomEvent('product view'));
-  window.appEventData.splice(1,0,{
+  window.appEventData.splice(1,1,{
     'event':'product view',
     'page' :"product_page",
     'product_name': productName,

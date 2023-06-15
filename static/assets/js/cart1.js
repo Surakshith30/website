@@ -115,12 +115,12 @@ dataLayer.push({
 
 
 document.dispatchEvent(new CustomEvent('addToCart'));
-window.appEventData.push({
+window.appEventData.splice(2,1,{
   'event': 'addToCart',
   'product_id':product_id,
   'product_name':product_name,
-  'product_price':product_price
-
+  'product_price':product_price,
+  'quantity':quant
 })
 
 addProductToCart();

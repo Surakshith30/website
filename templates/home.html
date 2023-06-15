@@ -9,7 +9,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N4NFMGH');</script>
   <!-- End Google Tag Manager -->
-  <script>
+  <!-- <script>
     !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="lLLWSHBsBQRTKLA6pIPB5vEgr46DjULA";;analytics.SNIPPET_VERSION="4.15.3";
     analytics.load("lLLWSHBsBQRTKLA6pIPB5vEgr46DjULA");
     analytics.page();
@@ -20,9 +20,8 @@
     analytics.load("lLLWSHBsBQRTKLA6pIPB5vEgr46DjULA");
     analytics.page();
     }}();
-  </script>
+  </script> -->
 <script src="static/assets/js/datalayer.js"></script>
-<script src="https://assets.adobedtm.com/81adfcd42355/687fa46fccd5/launch-850ba42f3b7d-development.min.js" async></script>
 <script src="https://assets.adobedtm.com/81adfcd42355/687fa46fccd5/launch-850ba42f3b7d-development.min.js" async></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1706,15 +1705,22 @@ displayEmail.textContent = window.myEmail;
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
                   <div class="slider-header fadeInDown-1">Top Brands</div>
-                  <div class="big-text fadeInDown-1"> New Collections </div>
+                  <div class="big-text fadeInDown-1"> New Collections 20% Off </div>
                   <div class="excerpt fadeInDown-2 hidden-xs"> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> </div>
-                  <div class="button-holder fadeInDown-3"> <a href="woman_handbags.html" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                  <div class="button-holder fadeInDown-3"> <a href="woman_handbags.html" id="promo" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                 </div>
                 <!-- /.caption --> 
               </div>
               <!-- /.container-fluid --> 
             </div>
             <!-- /.item -->
+            <script>
+              var promo = document.querySelector("#promo");
+              promo.addEventListener("click", (event) => {
+                 console.log("jap");
+                _satellite.track("promo20")
+              })
+            </script>
             
             <div class="item" style="background-image: url(static/assets/images/sliders/02.jpg);">
               <div class="container-fluid">
