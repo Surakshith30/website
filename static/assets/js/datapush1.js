@@ -37,6 +37,17 @@ function setDataLayerValues1(productName, productPrice, productID, productCatego
         
       }
     });
+
+    document.dispatchEvent(new CustomEvent('product view'));
+    window.appEventData.splice(1,1,{
+      'event':'product view',
+      'page' :"product_page",
+      'product_name': productName,
+      'product_price':  productPrice,
+      'product_id' : productID,
+      'product_category': productCategory,
+      
+    })
   }
   
 window.onload = setDataLayerValues1(prodName1 ,newProdPrice1, prodId , clothingValue1 );
