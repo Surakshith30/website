@@ -1716,10 +1716,10 @@ displayEmail.textContent = window.myEmail;
             <!-- /.item -->
             <script>
               var promo = document.querySelector("#promo");
-              promo.addEventListener("click", (event) => {
-                 console.log("jap");
-                _satellite.track("promo20")
+              promo.addEventListener("click", () => {
+                _satellite.track("promo20", {promoname:"New Collections 20% Off"})
               })
+           
             </script>
             
             <div class="item" style="background-image: url(static/assets/images/sliders/02.jpg);">

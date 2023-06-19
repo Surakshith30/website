@@ -152,14 +152,27 @@ getSession().then((emailId) => {
     });
 
     
-    document.dispatchEvent(new CustomEvent('pageview'));
+    document.dispatchEvent(new CustomEvent('pageview', {detail:{
+    "pageName": resource,
+    "pageURL" : window.location.href},
+  }
+  ));
+
     window.appEventData.splice(0,0,{
       'event': 'pageview',
       'pageName': resource,
-      pageURL : window.location.href
+      "pageURL" : window.location.href
                   
     });
     console.log("test kurma");
+
+    
+    window.appEventData.splice(0,0,{
+      'event': 'pageview',
+      'pageName': resource,
+      "pageURL" : window.location.href
+                  
+    });
     
   }
 
