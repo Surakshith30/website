@@ -165,14 +165,6 @@ getSession().then((emailId) => {
                   
     });
     console.log("test kurma");
-
-    
-    window.appEventData.splice(0,0,{
-      'event': 'pageview',
-      'pageName': resource,
-      "pageURL" : window.location.href
-                  
-    });
     
   }
 
