@@ -1025,7 +1025,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let added_products = JSON.parse(localStorage.getItem('added_products'));
   window.dataLayer.push({"event":"cart list", added_products });
   document.dispatchEvent(new CustomEvent('scView'));
-  window.appEventData.push({"event":"scView",added_products})
+  window.appEventData.splice(1,0,{"event":"scView",added_products})
   console.log('cart_product_number', cart_product_number, 'total_price', total_price, 'added_products', added_products);
 
   const basket_num  = document.querySelector('#cart_num');
