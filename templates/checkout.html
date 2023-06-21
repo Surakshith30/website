@@ -812,26 +812,7 @@
                               </div>
 						    </div>
 					    </div>
-<script>
-  var cdnum=document.querySelector('#payment-info-card-number').value
-  var clk=document.querySelector('#payBtn')
-  clk.addEventListener('click',(e)=>{
-    if(cdnum){
-      console.log(cdnum)
-       document.dispatchEvent(new CustomEvent ('paymentDetail',{
-        detail:{
-          'card_num':cdnum
-        }
-        
-        
-       }))
-       
-       
-}
-})
 
- 
-</script>
               
 					   
 
@@ -1332,7 +1313,24 @@
           card_number: document.getElementById("payment-info-card-number").value,
           CVV: document.getElementById("payment-info-cvv").value,
           date: document.getElementById("payment-info-date").value}
+
+
+      if(payment.name_card !=null){
+      // console.log(payment.name_card)
+       document.dispatchEvent(new CustomEvent ('paymentDetail',{
+        detail:{
+          'card_name':payment.name_card 
+        }
+        
+        
+       }))
+       
+       
+}
+      
       window.localStorage.setItem('Payment',JSON.stringify(payment));
+    
+
   };
 
   confirm_order.onclick = function(){ console.log(localStorage); 
