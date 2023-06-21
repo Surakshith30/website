@@ -1175,15 +1175,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 });
 
-document.dispatchEvent(new CustomEvent('remove_from_cart',
-{detail:{
-  'items': {                        //  adding a product to a shopping cart.
-        'item_name': added_products[product_id].product_name,
-        'item_id': added_products[product_id].product_id,
-        'price': added_products[product_id].product_price,
-        'product_quantity': added_products[product_id].product_quantity
-       }
-}}))
+document.dispatchEvent(new CustomEvent('remove_from_cart'))
+window.appEventData.splice(1,0,{
+  'event':'remove from cart',
+  'productId':added_products[product_id].product_id,
+  'productName':added_products[product_id].product_name,
+  'productPrice':added_products[product_id].product_price,
+  'productQuantity':added_products[product_id].product_quantity
+})
+// {detail:{
+//   'items': {                        //  adding a product to a shopping cart.
+//         'item_name': added_products[product_id].product_name,
+//         'item_id': added_products[product_id].product_id,
+//         'price': added_products[product_id].product_price,
+//         'product_quantity': added_products[product_id].product_quantity
+//        }
+// }}))
 
 
     product_id = product_id.trim();
