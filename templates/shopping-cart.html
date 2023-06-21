@@ -1176,7 +1176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 });
 
 document.dispatchEvent(new CustomEvent('remove_from_cart'))
-window.appEventData.splice(1,0,{
+window.appEventData.splice(2,0,{
   'event':'remove from cart',
   'productId':added_products[product_id].product_id,
   'productName':added_products[product_id].product_name,
