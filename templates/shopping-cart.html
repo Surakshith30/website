@@ -1024,7 +1024,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let total_price = Number(localStorage.getItem('total_price'));
   let added_products = JSON.parse(localStorage.getItem('added_products'));
   window.dataLayer.push({"event":"cart list", added_products });
-  
+  document.dispatchEvent(new CustomEvent('scView'));
+  window.appEventData.push({"event":"scView",added_products})
   console.log('cart_product_number', cart_product_number, 'total_price', total_price, 'added_products', added_products);
 
   const basket_num  = document.querySelector('#cart_num');
@@ -1206,9 +1207,10 @@ document.dispatchEvent(new CustomEvent('remove_from_cart',
    
 
     loadProduct();
-   window.dataLayer.push({"event":"cart_list",added_products})
-  
-
+  //  window.dataLayer.push({"event":"sart_list",added_products})
+  //  document.dispatchEvent(new CustomEvent('scView'));
+  //  window.appEventData.push({"event":"scView",added_products})
+   
   }
 
   loadProduct();
