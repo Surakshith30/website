@@ -1023,7 +1023,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let cart_product_number = Number(localStorage.getItem('cart_product_number'));
   let total_price = Number(localStorage.getItem('total_price'));
   let added_products = JSON.parse(localStorage.getItem('added_products'));
+ 
   window.dataLayer.push({"event":"cart list", added_products });
+  
+ // adobe cart view data layer
   document.dispatchEvent(new CustomEvent('scView'));
   window.appEventData.splice(1,0,{"event":"scView",added_products})
   console.log('cart_product_number', cart_product_number, 'total_price', total_price, 'added_products', added_products);

@@ -1537,19 +1537,19 @@ billing_array.push(billing_details);
       grand_total.innerText = `$${ Number(total_price).toFixed(2)}`;
       console.log('After Increasing Product Quantity', product_id, added_products[product_id]);
   
-      dataLayer.push({
-    'event': 'addToCart',
-    'ecommerce': {
-      'currencyCode': 'EUR',
-        'products': [{                        //  adding a product to a shopping cart.
-          'name': added_products[product_id].product_name,
-          'id': added_products[product_id].product_id,
-          'price': added_products[product_id].product_price,
-          'product_quantity': added_products[product_id].product_quantity
-         }]
+  //     dataLayer.push({
+  //   'event': 'addToCart',
+  //   'ecommerce': {
+  //     'currencyCode': 'EUR',
+  //       'products': [{                        //  adding a product to a shopping cart.
+  //         'name': added_products[product_id].product_name,
+  //         'id': added_products[product_id].product_id,
+  //         'price': added_products[product_id].product_price,
+  //         'product_quantity': added_products[product_id].product_quantity
+  //        }]
       
-    }
-  });
+  //   }
+  // });
       
     }
   
@@ -1656,6 +1656,8 @@ dataLayer.push({
     "items": items
   }
 });
+
+window.appEventData.splice(1,0,{"event":"scCheckout", added_product});
 
 </script>
 
