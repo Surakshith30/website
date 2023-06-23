@@ -457,7 +457,12 @@ For what reason would it be advisable for me to think about business content? Th
     
 <script>
     let purchasedItems = JSON.parse(localStorage.getItem('added_products'));
-    console.log(purchasedItems); 
+    let added_products=purchasedItems
+
+    document.dispatchEvent(new CustomEvent('order-confirm'))
+    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products})
+
+     
     function orderConfirm(){
         let orderRows = "";
 

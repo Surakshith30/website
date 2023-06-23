@@ -808,6 +808,9 @@ $(document).ready(function(){
 function addProductToCart(){
   added_products = JSON.parse(localStorage.getItem('added_products'));
 
+  document.dispatchEvent(new CustomEvent('order-confirm'))
+  window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products})
+console.log("order-congirmhjfkutdhgd")
   var data1 = new FormData()
   data1.append('added_products', JSON.stringify(added_products));
   
