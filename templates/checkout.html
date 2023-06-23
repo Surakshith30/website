@@ -1656,7 +1656,7 @@ dataLayer.push({
     "items": items
   }
 });
-
+document.dispatchEvent(new CustomEvent("scCheckout"))
 window.appEventData.splice(1,0,{"event":"scCheckout", added_product});
 
 </script>
