@@ -158,6 +158,8 @@ getSession().then((emailId) => {
   }
   ));
 
+
+  
     window.appEventData.splice(0,0,{
       'event': 'pageview',
       'pageName': resource,
