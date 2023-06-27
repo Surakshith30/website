@@ -182,17 +182,17 @@ console.log("getting");
 
 
 document.addEventListener("click", function(event) {
-  
+  var linkText = event.target.textContent;
+  var linkurl=event.target.href
   // Check if the clicked element is an anchor tag
   if (event.target.tagName === "A") {
-    // Get the text of the clicked link
-    var linkText = event.target.textContent;
-    var linkurl=event.target.href
-    
     event.preventDefault();
+    // Get the text of the clicked link
+    
    
     // You can perform further actions with the link text here
     document.dispatchEvent(new CustomEvent("link_name", {detail: {'linkText':linkText,'linkurl':linkurl}}))
+    
     window.location.href=event.target.href
   }
 });
