@@ -1152,7 +1152,7 @@
           <!-- /.module-heading -->
 
           <div class="module-body">
-            <ul class="toggle-footer" style="">
+            <ul class="toggle-footer" >
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
@@ -1470,6 +1470,11 @@ billing_array.push(billing_details);
     let total_price = Number(localStorage.getItem('total_price'));
     let added_products = JSON.parse(localStorage.getItem('added_products'));
     // window.dataLayer.push({"event":" checkout list", added_products });
+
+
+    //app event data layer for adobe inthe format for the data element
+    document.dispatchEvent(new CustomEvent("scCheckout"))
+    window.appEventData.splice(1,0,{"event":"scCheckout", added_products});
     
     console.log('cart_product_number', cart_product_number, 'total_price', total_price, 'added_products', added_products);
   
@@ -1636,7 +1641,10 @@ getSession().then((emailId) => {
   }
 });
 
+
+// GTM DataLayer for Begin_checkout
 let added_product = JSON.parse(localStorage.getItem('added_products'));
+
 let items = [];
 
 Object.values(added_product).forEach(product => {
@@ -1656,8 +1664,7 @@ dataLayer.push({
     "items": items
   }
 });
-document.dispatchEvent(new CustomEvent("scCheckout"))
-window.appEventData.splice(1,0,{"event":"scCheckout", added_product});
+
 
 </script>
 

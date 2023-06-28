@@ -196,3 +196,21 @@ document.addEventListener("click", function(event) {
     window.location.href=event.target.href
   }
 });
+
+
+var isMobile = /Mobi/i.test(navigator.userAgent);
+var isTablet = /Tablet/i.test(navigator.userAgent);
+var isDesktop = !isMobile && !isTablet;
+
+if(isTablet==true){
+  var rlt="tablet"
+  console.log(rlt)
+}
+else if(isMobile==true){
+  var rlt="Mobile"
+  console.log(rlt)
+   
+}else{
+  var rlt="Desktop"
+  console.log(rlt)
+}
