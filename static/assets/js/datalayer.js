@@ -80,7 +80,7 @@ window.appEventData.splice(0,0,{
   'pageName': resource,
   'pageURL' : window.location.href,
   "user" : "logged in",
-  "device type":rlt
+  "deviceType":rlt
               
 });
 
@@ -167,7 +167,7 @@ getSession().then((emailId) => {
       'pageName': resource,
       "pageURL" : window.location.href,
       "user" : "guest",
-      "device type":rlt
+      "deviceType":rlt
                   
     });
     console.log("test kurma");
