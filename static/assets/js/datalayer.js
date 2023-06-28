@@ -78,7 +78,9 @@ document.dispatchEvent(new CustomEvent('pageview'));
 window.appEventData.splice(0,0,{
   'event': 'pageview',
   'pageName': resource,
-  pageURL : window.location.href
+  'pageURL' : window.location.href,
+  "user" : "logged in",
+  "device type":rlt
               
 });
 
@@ -163,7 +165,9 @@ getSession().then((emailId) => {
     window.appEventData.splice(0,0,{
       'event': 'pageview',
       'pageName': resource,
-      "pageURL" : window.location.href
+      "pageURL" : window.location.href,
+      "user" : "guest",
+      "device type":rlt
                   
     });
     console.log("test kurma");
