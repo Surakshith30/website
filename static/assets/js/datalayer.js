@@ -78,8 +78,7 @@ document.dispatchEvent(new CustomEvent('pageview'));
 window.appEventData.splice(0,0,{
   'event': 'pageview',
   'pageName': resource,
-  pageURL : window.location.href
-              
+  pageURL : window.location.href,              
 });
 
   
