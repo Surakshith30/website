@@ -13,6 +13,7 @@
 //     window.dataLayer.push({'event': 'user_id',"user_id": "anonymous"});
 //   }
 // });
+
 var path = window.location.pathname;
 var resource = path.replace(/\.html$/, "");
 let url =window.location.href
@@ -171,6 +172,8 @@ getSession().then((emailId) => {
                   
     });
     console.log("test kurma");
+    
+    
     
   }
 
