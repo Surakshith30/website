@@ -13,6 +13,7 @@
 //     window.dataLayer.push({'event': 'user_id',"user_id": "anonymous"});
 //   }
 // });
+
 var path = window.location.pathname;
 var resource = path.replace(/\.html$/, "");
 let url =window.location.href
@@ -78,7 +79,10 @@ document.dispatchEvent(new CustomEvent('pageview'));
 window.appEventData.splice(0,0,{
   'event': 'pageview',
   'pageName': resource,
-  pageURL : window.location.href,              
+  'pageURL' : window.location.href,
+  "user" : "logged in",
+  "deviceType":rlt
+              
 });
 
   
@@ -162,10 +166,14 @@ getSession().then((emailId) => {
     window.appEventData.splice(0,0,{
       'event': 'pageview',
       'pageName': resource,
-      "pageURL" : window.location.href
+      "pageURL" : window.location.href,
+      "user" : "guest",
+      "deviceType":rlt
                   
     });
     console.log("test kurma");
+    
+    
     
   }
 
@@ -181,17 +189,17 @@ console.log("getting");
 
 
 document.addEventListener("click", function(event) {
-  
+  var linkText = event.target.textContent;
+  var linkurl=event.target.href
   // Check if the clicked element is an anchor tag
   if (event.target.tagName === "A") {
-    // Get the text of the clicked link
-    var linkText = event.target.textContent;
-    var linkurl=event.target.href
-    
     event.preventDefault();
+    // Get the text of the clicked link
+    
    
     // You can perform further actions with the link text here
     document.dispatchEvent(new CustomEvent("link_name", {detail: {'linkText':linkText,'linkurl':linkurl}}))
+    
     window.location.href=event.target.href
   }
 });
