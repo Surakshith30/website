@@ -2083,6 +2083,10 @@ def wishlist():
 def Order():
     return render_template("OrderConf.html")
 
+@app.route("/terms-conditions.html")
+def terms():
+    return render_template("terms-conditions.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
  
