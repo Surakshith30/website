@@ -9,15 +9,15 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N4NFMGH');</script>
   <!-- End Google Tag Manager -->
-  <!-- <script>
-    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="XmmQIo3UgqL87BOOoxyPWV5vcwAeixkc";;analytics.SNIPPET_VERSION="4.15.3";
-    analytics.load("XmmQIo3UgqL87BOOoxyPWV5vcwAeixkc");
-    analytics.page();
-    }}();
-  </script> -->
+<script>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){if(window.analytics.initialized)return window.analytics[e].apply(window.analytics,arguments);var i=Array.prototype.slice.call(arguments);i.unshift(e);analytics.push(i);return analytics}};for(var i=0;i<analytics.methods.length;i++){var key=analytics.methods[i];analytics[key]=analytics.factory(key)}analytics.load=function(key,i){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=i};analytics._writeKey="XmmQIo3UgqL87BOOoxyPWV5vcwAeixkc";;analytics.SNIPPET_VERSION="4.16.1";
+  analytics.load("XmmQIo3UgqL87BOOoxyPWV5vcwAeixkc");
+  analytics.page();
+  }}();
+</script>
 <script src="static/assets/js/datalayer.js"></script>
 <script src="https://assets.adobedtm.com/81adfcd42355/687fa46fccd5/launch-850ba42f3b7d-development.min.js" async></script>
-<script src="assets/js/form.js"></script>
+<script async src="assets/js/form.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -534,16 +534,16 @@ $(document).ready(function(){
   <form class="form" id="form">
       <div class="form-group">
           <label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
-          <input type="email"  id="exampleInputEmail2" >
+          <input type="email"  id="exampleInputEmail2" ><br>
           <span id = "message44" style="color:red"> </span> <br><br>
         </div>
       <div class="form-group">
           <label class="info-title" for="exampleInputEmail1" >Name <span>*</span></label><br>
-          <input type="text" id="name" ><span id = "message4" style="color:red"> </span> <br><br>
+          <input type="text" id="name" ><br><span id = "message4" style="color:red"> </span> <br><br>
       </div>
       <div class="form-group">
           <label class="info-title" for="exampleInputEmail1" >Phone Number <span>*</span></label>
-          <input type="number"  id="number" ><span id = "message3" style="color:red"> </span> <br><br>
+          <input type="number"  id="number" ><br><span id = "message3" style="color:red"> </span> <br><br>
       </div>
       <div class="form-group">
         <label class="info-title" for="exampleInputEmail1">Gender<span>*</span></label><br>
@@ -553,14 +553,14 @@ $(document).ready(function(){
           </div>
       <div class="form-group">
           <label class="info-title" for="exampleInputEmail1">Message<span>*</span></label><br>
-          <textarea id="comment" rows="4"></textarea><span id = "message1" style="color:red"> </span> <br><br>
+          <textarea id="comment" rows="4"></textarea><br><span id = "message1" style="color:red"> </span> <br><br>
       </div>
        <!-- <div class="form-group">
           <label class="info-title" for="exampleInputEmail1">Confirm Password <span>*</span></label>
           <input type="password"  id="pswd2" ><span id = "message2" style="color:red"> </span> <br><br>
       </div> -->
       <div class="form-group">
-        <input type="submit" id="submit"  class="form-submit" value="hhh">
+        <input type="submit" id="submit"  class="form-submit" value="Submit">
       </div>
   </form>
   
@@ -579,6 +579,14 @@ $(document).ready(function(){
            padding: 10px;
        border-style: solid;
        border-radius: 10em;}
+
+	   input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
     
 </style>
 
@@ -631,7 +639,7 @@ $(document).ready(function(){
           <!-- /.module-heading -->
           
           <div class="module-body">
-            <ul class="toggle-footer" style="">
+            <ul class="toggle-footer" >
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
@@ -770,6 +778,93 @@ $(document).ready(function(){
 <script src="assets/js/bootstrap-select.min.js"></script> 
 <script src="assets/js/wow.min.js"></script> 
 <script src="assets/js/scripts.js"></script>
+<script> 
+console.log("hhhkkk")
+var email = document.getElementById("exampleInputEmail2");
+	var fname = document.getElementById("name");
+	var phone = document.getElementById("number");
+	var password1 = document.getElementById("comment");
+	// var password2 = document.getElementById("pswd2");
+	const form = document.querySelector('#form');
+	// window.onload = function() {
+	//     document.getElementById("form").reset();
+	//   };
+	
+	// window.dataLayer = window.dataLayer || [];
+	form.addEventListener('submit', (e) => {
+	 console.log("gg")
+		if (!validateForm()) {       
+			e.preventDefault();
+		}
+		else {
+			e.preventDefault();
+	
+			analytics.track('form submitted', {
+				name: fname.value,
+				email: email.value,
+			});
+			form.dispatchEvent(new CustomEvent('form_submit'));
+	
+			dataLayer.splice(1,1,{
+				'form': {
+					'name': "ggg",
+					'email': email.value
+				}
+			})
+		   
+		  
+	 
+			  
+		}
+	
+	});
+	
+	// form.addEventListener('submit', (e) => {
+	// window.location.href="help.html";
+	// })
+	// function thankyou(){
+	//     console.log("yes");
+	//     if (validateForm()) { 
+	//     window.location.href="help.html";
+	//     }
+	// }
+	function validateForm() {
+		var email1 = email.value;
+		var name1 = fname.value;
+		var phone1 = phone.value;
+		var password11 = password1.value;
+		let success = true;
+		if (email1 == "") {
+			document.getElementById("message44").innerHTML = "email is required";
+			success = false;
+		} else {
+			document.getElementById("message44").innerHTML = "";
+		}
+		if (!name1) {
+			document.getElementById("message4").innerHTML = "Name is required";
+			success = false;
+		} else {
+			document.getElementById("message4").innerHTML = "";
+		}
+	
+		if (!phone1 || phone1.toString().length !== 10) {
+			document.getElementById("message3").innerHTML = "Phone number is required";
+			success = false;
+		} else {
+			document.getElementById("message3").innerHTML = "";
+		}
+	
+		if (!password11) {
+			document.getElementById("message1").innerHTML = "Password is required";
+			success = false;
+		} else {
+			document.getElementById("message1").innerHTML = "";
+		}
+	
+		return success;
+	}
+	
+	</script>
 
 
 </body>

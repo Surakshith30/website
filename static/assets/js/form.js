@@ -1,4 +1,4 @@
-console.log("form.js")
+console.log("tudtuyfufuy");
 
   var email = document.getElementById("exampleInputEmail2");
   var fname = document.getElementById("name");
