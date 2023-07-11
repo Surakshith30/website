@@ -211,13 +211,13 @@ var isDesktop = !isMobile && !isTablet;
 
 if(isTablet==true){
   var deviceType="tablet"
-  console.log(rlt)
+  console.log(deviceType)
 }
 else if(isMobile==true){
   deviceType="Mobile"
-  console.log(rlt)
+  console.log(deviceType)
    
 }else{
   deviceType="Desktop"
-  console.log(rlt)
+  console.log(deviceType)
 }
