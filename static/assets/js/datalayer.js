@@ -81,7 +81,7 @@ window.appEventData.splice(0,0,{
   'pageName': resource,
   'pageURL' : window.location.href,
   "user" : "logged in",
-  "deviceType":rlt
+  deviceType
               
 });
 
@@ -168,7 +168,7 @@ getSession().then((emailId) => {
       'pageName': resource,
       "pageURL" : window.location.href,
       "user" : "guest",
-      "deviceType":rlt
+      deviceType
                   
     });
     console.log("test kurma");
@@ -210,14 +210,14 @@ var isTablet = /Tablet/i.test(navigator.userAgent);
 var isDesktop = !isMobile && !isTablet;
 
 if(isTablet==true){
-  var rlt="tablet"
-  console.log(rlt)
+  var deviceType="tablet"
+  console.log(deviceType)
 }
 else if(isMobile==true){
-  var rlt="Mobile"
-  console.log(rlt)
+  deviceType="Mobile"
+  console.log(deviceType)
    
 }else{
-  var rlt="Desktop"
-  console.log(rlt)
+  deviceType="Desktop"
+  console.log(deviceType)
 }
