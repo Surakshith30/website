@@ -196,6 +196,7 @@ document.addEventListener("click", function(event) {
     event.preventDefault();
     // Get the text of the clicked link
     
+  linkText1.push(linkText) ;
    
     // You can perform further actions with the link text here
     document.dispatchEvent(new CustomEvent("link_name", {detail: {'linkText':linkText,'linkurl':linkurl}}))
@@ -204,7 +205,7 @@ document.addEventListener("click", function(event) {
   }
 });
 
-
+  var linkText1 = [] ;
 var isMobile = /Mobi/i.test(navigator.userAgent);
 var isTablet = /Tablet/i.test(navigator.userAgent);
 var isDesktop = !isMobile && !isTablet;
