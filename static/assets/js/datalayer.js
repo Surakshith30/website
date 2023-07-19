@@ -212,13 +212,9 @@ document.addEventListener("click", function(event) {
   }
 });
 
-<<<<<<< HEAD
 
-
-
-=======
   var linkText1 = [] ;
->>>>>>> 2ca166f8ba57dc7567216de3a1c00bb56851dd7f
+
 var isMobile = /Mobi/i.test(navigator.userAgent);
 var isTablet = /Tablet/i.test(navigator.userAgent);
 var isDesktop = !isMobile && !isTablet;
