@@ -292,11 +292,20 @@ For what reason would it be advisable for me to think about business content? Th
                     </tr>
 
                     <tr>
-                        <td width="75%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
-                            Order Confirmation ID # &nbsp;    2345678
+                        <td id="Order-id" width="75%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                            Order Confirmation ID # &nbsp;  
                         </td>
                     
                     </tr>
+                    <!-- <script>
+                        function order(){
+                        let order = `Order Confirmation ID # &nbsp; ${currentDateTimeString } `;
+                    
+                      document.querySelector('#Order-id').innerHTML = order;
+                      console.log(order);
+                        }
+                        order();
+                    </script> -->
                     <!-- <tr>
                         <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;">
                             <h3 style="font-size: 16px; font-weight: 800; line-height: 36px; color: #777777;">
@@ -461,7 +470,7 @@ For what reason would it be advisable for me to think about business content? Th
     let added_products=purchasedItems
 
     document.dispatchEvent(new CustomEvent('order-confirm'))
-    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products})
+    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products })
 
      
     function orderConfirm(){
@@ -486,6 +495,45 @@ For what reason would it be advisable for me to think about business content? Th
     orderConfirm();
     let total_price = Number(localStorage.getItem('total_price'));
     document.querySelector('#total').innerHTML=  `$${total_price.toFixed(2)}`;
+    
+    function getCurrentDateTimeString() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1; // Month is 0-indexed, so we add 1
+  const date = now.getDate();
+  const day = now.getDay();
+
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  return `${year}${month}${date}${hour}${minute}${seconds}`;
+}
+
+const currentDateTimeString = getCurrentDateTimeString();
+console.log(currentDateTimeString);
+
+function order(){
+             
+    if (!localStorage.getItem('order')){
+                         localStorage.setItem('order', currentDateTimeString)
+                        let order = `Order Confirmation ID # &nbsp; ${currentDateTimeString } `;
+                    
+                      document.querySelector('#Order-id').innerHTML = order;
+                      console.log(order);
+                        
+                       
+    }
+    else {
+        let newOrder = localStorage.getItem('order')
+        let order = `Order Confirmation ID # &nbsp; ${newOrder } `;
+        document.querySelector('#Order-id').innerHTML = order;
+                      console.log(order);
+    }
+                    }
+                    
+                    order();
 </script>
 
 </body>

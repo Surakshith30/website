@@ -54,6 +54,9 @@ const pageview = {
 window.dataLayer = window.dataLayer || [];
 
 window.emailArray = [];
+console.log(window.emailArray[0] ,"Array")
+let emailuni = window.emailArray;
+console.log("emailuni",emailuni[0])
 let anon= "anonymous";
 function getSession() {
   return fetch("/get_session")
@@ -71,7 +74,7 @@ function pushUserIdToDataLayer() {
  //GTM dataLayer
   window.dataLayer.push({
     'event': 'pageview',
-    'url': window.location.href
+    'url': window.location.href,
   });
 
 //dataLayer
@@ -81,7 +84,9 @@ window.appEventData.splice(0,0,{
   'pageName': resource,
   'pageURL' : window.location.href,
   "user" : "logged in",
-  deviceType
+  deviceType,
+  'email': window.emailArray[0]
+
               
 });
 
@@ -178,12 +183,64 @@ getSession().then((emailId) => {
   }
 
 });
+function getCookie(name) {
+  const cookieString = document.cookie;
+  const cookies = cookieString.split('; ');
+  for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+          return decodeURIComponent(cookieValue); // Cookies are URL-encoded, so decode the value
+      }
+  }
+  return null; // Return null if the cookie is not found
+}
+const cookie = getCookie('uuid');
 
 getSession().then((emailId) => {
   let email1 = emailId ;
   let displayEmail = document.querySelector("#email");
 displayEmail.textContent = email1;
-});
+
+// UUID setup
+if (cookie) 
+{console.log("cookie already exist")}
+
+else {
+function generateUUIDFromEmail(email) {
+  const cryptoObj = window.crypto || window.msCrypto; // For older browsers compatibility
+  if (cryptoObj && cryptoObj.getRandomValues) {
+      const normalizedEmail = email.toLowerCase().trim();
+      const buffer = new Uint8Array(16);
+      cryptoObj.getRandomValues(buffer);
+
+      // Create a hash from the normalized email using SHA-256
+      const encoder = new TextEncoder();
+      const data = encoder.encode(normalizedEmail);
+      return   arrayToHex(buffer) + arrayToHex(data);
+  } else {
+      console.error('Your browser does not support secure random number generation.');
+      return null;
+  }
+}
+
+function arrayToHex(array) {
+  return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function setCookie(name, value, days) {
+  const expirationDate = new Date();
+  expirationDate.setTime(expirationDate.getTime() + (days * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + expirationDate.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+const email2 = email1; // Replace this with the desired email
+console.log("Heyyy",email2);
+const generatedUUID = generateUUIDFromEmail(email2);
+if (generatedUUID) {
+setCookie('uuid', generatedUUID, 30);
+}
+}});
 console.log("getting");
 
 
@@ -222,3 +279,7 @@ else if(isMobile==true){
   deviceType="Desktop"
   console.log(deviceType)
 }
+
+
+      
+   
