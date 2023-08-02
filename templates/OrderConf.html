@@ -457,11 +457,14 @@ For what reason would it be advisable for me to think about business content? Th
 </table>
     
 <script>
+    let orderId=2345678
     let purchasedItems = JSON.parse(localStorage.getItem('added_products'));
+    let total_price = Number(localStorage.getItem('total_price'));
+
     let added_products=purchasedItems
 
     document.dispatchEvent(new CustomEvent('order-confirm'))
-    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products})
+    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products,total_price,orderId})
 
      
     function orderConfirm(){
@@ -484,7 +487,7 @@ For what reason would it be advisable for me to think about business content? Th
     }
 
     orderConfirm();
-    let total_price = Number(localStorage.getItem('total_price'));
+    
     document.querySelector('#total').innerHTML=  `$${total_price.toFixed(2)}`;
 </script>
 

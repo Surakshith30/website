@@ -1475,7 +1475,7 @@ billing_array.push(billing_details);
 
     //app event data layer for adobe inthe format for the data element
     document.dispatchEvent(new CustomEvent("scCheckout"))
-    window.appEventData.splice(1,0,{"event":"scCheckout", added_products});
+    window.appEventData.splice(1,0,{"event":"scCheckout", added_products,total_price});
     
     console.log('cart_product_number', cart_product_number, 'total_price', total_price, 'added_products', added_products);
   
