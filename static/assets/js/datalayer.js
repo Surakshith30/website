@@ -257,12 +257,21 @@ document.addEventListener("click", function(event) {
    
     // You can perform further actions with the link text here
     document.dispatchEvent(new CustomEvent("link_name", {detail: {'linkText':linkText,'linkurl':linkurl}}))
+    window.appEventData.push(
+      {
+      'linkText':linkText,
+      'linkurl':linkurl
+    })
+
+   
     
     window.location.href=event.target.href
   }
 });
 
+
   var linkText1 = [] ;
+
 var isMobile = /Mobi/i.test(navigator.userAgent);
 var isTablet = /Tablet/i.test(navigator.userAgent);
 var isDesktop = !isMobile && !isTablet;
