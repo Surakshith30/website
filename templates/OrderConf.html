@@ -473,11 +473,7 @@ For what reason would it be advisable for me to think about business content? Th
     let added_products=purchasedItems
 
     document.dispatchEvent(new CustomEvent('order-confirm'))
-<<<<<<< HEAD
-    window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products })
-=======
     window.appEventData.splice(1,0,{"event":"SC-order_confirm",added_products,total_price,orderId})
->>>>>>> 325079e536c8d3c4c885dc266b63f465b6f053d5
 
      
     function orderConfirm(){
