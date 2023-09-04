@@ -216,7 +216,7 @@ function generateUUIDFromEmail(email) {
       // Create a hash from the normalized email using SHA-256
       const encoder = new TextEncoder();
       const data = encoder.encode(normalizedEmail);
-      return   arrayToHex(buffer) + arrayToHex(data);
+      return  arrayToHex(buffer) + "  " +arrayToHex(data);
   } else {
       console.error('Your browser does not support secure random number generation.');
       return null;
@@ -253,7 +253,7 @@ document.addEventListener("click", function(event) {
     event.preventDefault();
     // Get the text of the clicked link
     
-  linkText1.push(linkText) ;
+  linkText1.push(linkText) 
    
     // You can perform further actions with the link text here
     document.dispatchEvent(new CustomEvent("link_name", {detail: {'linkText':linkText,'linkurl':linkurl}}))
