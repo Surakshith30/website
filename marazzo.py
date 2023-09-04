@@ -10,6 +10,7 @@ from datetime import datetime
 
 import os
 import psycopg2
+import secrets
 
 app = Flask(__name__)
 app.secret_key = "wkfw"  
@@ -131,9 +132,34 @@ def checkout():
 # @app.before_request
 # def before_request_func():
 #     print("before_request executing!")
-    
 
-@app.route("/")
+#CSP PROCESS CHECKING FOR ADOBE
+# Replace 'EDGE-DOMAIN' with your configured first-party domain or '*.adobedc.net'
+# EDGE_DOMAIN = '*.adobedc.net'
+
+# @app.after_request
+# def add_csp(response):
+#     csp_header = f"default-src 'self'; connect-src 'self' {EDGE_DOMAIN} *.demdex.net; script-src 'self' assets.adobedtm.com; "
+
+#     # Add the CSP nonce if it exists in the response context
+#     nonce = getattr(response, '_csp_nonce', None)
+#     if nonce:
+#         csp_header += f" script-src 'nonce-{nonce}'"
+
+#     response.headers["Content-Security-Policy"] = csp_header
+#     return response
+
+# import random
+# import string
+
+# def generate_nonce(length=32):
+#     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+@app.route('/')
+# def index():
+#     nonce = generate_nonce()
+#     return render_template('home.html', nonce=nonce)
+
 @app.route("/home")
 def home():
     return render_template("home.html")
