@@ -183,6 +183,7 @@ getSession().then((emailId) => {
   }
 
 });
+
 function getCookie(name) {
   const cookieString = document.cookie;
   const cookies = cookieString.split('; ');
