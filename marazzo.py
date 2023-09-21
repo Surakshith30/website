@@ -247,7 +247,7 @@ def login():
             return redirect(url_for('signin'))
         else:
             print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-            current_email.execute('select count(email_id) from signin where email_id=?',params)
+            current_email.execute('select count(email_id) from signup where email_id=?',params)
             count_email_id=current_email.fetchone()
 
     with sqlite3.connect('new_db.db') as conn:
@@ -430,6 +430,7 @@ def create_account():
         cur_date.execute("SELECT datetime('now','localtime') as timestamps;")
         ids=count_row.fetchone()
         ids=ids[0]+1
+        # ids1=ids1[0]+1
         print(ids)
         date_time=cur_date.fetchone()
         datetime_object = datetime.strptime(date_time[0], '%Y-%m-%d %H:%M:%S')
@@ -444,6 +445,13 @@ def create_account():
             cur.execute('INSERT INTO signup (Id,email_id, name,phone_number,password,confirm_password,created_at,modified_at)'
                         'VALUES (?,?,?,?,?,?,?,?)',
                         (ids,email_id, Name,Phone,pwd,cpwd,date_time,date_time))
+
+            # cur.execute(
+            #     'INSERT INTO signin (email_id, last_visited, logout_time)'
+            #     'VALUES (?, ?, ?)',
+            #     (email_id, cur_date, cur_date)
+            # )
+
             conn.commit()
             cur.close()
             #conn.close()

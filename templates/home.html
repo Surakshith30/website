@@ -94,11 +94,7 @@ $(document).ready(function(){
 });
 </script> -->
 
-<script>
-  $(document).ready(function(){
-      $('#myModal').modal('show');
-  });
-</script>
+
 
 
 <!-- <script>
@@ -118,8 +114,7 @@ $(document).ready(function(){
           <div class="modal-header">
               <h4 class="modal-title">Welcome,  <span id="userValue"></span></h4>
               <p  style="font-size: 20px; color: darkorange;">We have exclusively chosen products at best price for you.<br> Happy shopping!!!</p>
-              <button type="button" class="close"   data-dismiss="modal" style="font-size: 30px;  vertical-align: middle;">&times;</button>
-          </div>
+              <button type="button" class="close" data-dismiss="modal" style="font-size: 30px; vertical-align: middle; margin-top: -10px; color: rgb(6, 2, 2); ">&times;</button>          </div>
 
           <!-- Modal body -->
           <div class="modal-body">
@@ -4184,7 +4179,9 @@ console.log("Total value of all products: " + totalValue.toFixed(2));
     error: function() {
         console.log("Error retrieving cart data");
     }
-});</script>
+});
+
+</script>
 {%endif %}
 
 
@@ -4592,6 +4589,12 @@ if (typeof(Storage) !== "undefined") {
         
         // Set the content of the <span> tag to the variable's value
         userValueElement.textContent = userTraits.email;
+
+
+        if (ajsUserTraitsValue !== null) {
+        $(document).ready(function(){
+      $('#myModal').modal('show');
+  });}
     </script>
 
 
