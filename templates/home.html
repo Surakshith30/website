@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <script>
-    !function(e,a,n,t){var i=e.head;if(i){
-    if (a) return;
-    var o=e.createElement("style");
-    o.id="alloy-prehiding",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}
-    (document, document.location.href.indexOf("adobe_authoring_enabled") !== -1, ".personalization-container { opacity: 0 !important }", 3000);
+    function targetPageParams() {
+      return {
+        "at_property": "7774f995-c4ce-6d65-afd2-74e685531433"
+      };
+    }
   </script>
+  <script>
+    //prehiding snippet for Adobe Target with asynchronous tags deployment
+    ;(function(win, doc, style, timeout) {
+    var STYLE_ID = 'at-body-style';
+    function getParent() {
+       return doc.getElementsByTagName('head')[0];
+    }
+    function addStyle(parent, id, def) {
+       if (!parent) {
+       return;
+       }
+       var style = doc.createElement('style');
+       style.id = id;
+       style.innerHTML = def;
+       parent.appendChild(style);
+    }
+    function removeStyle(parent, id) {
+       if (!parent) {
+       return;
+       }
+       var style = doc.getElementById(id);
+       if (!style) {
+       return;
+       }
+       parent.removeChild(style);
+    }
+    addStyle(getParent(), STYLE_ID, style);
+    setTimeout(function() {
+       removeStyle(getParent(), STYLE_ID);
+    }, timeout);
+    }(window, document, "body {opacity: 0 !important}", 3000));
+ </script>
+ 
 
 
   <!-- Google tag (gtag.js) -->
@@ -1836,11 +1868,12 @@ displayEmail.textContent = window.myEmail;
       <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
         <!-- ========================================== SECTION – HERO ========================================= -->
         
-        <div id="hero">
+        <div id="hero" class="mbox-name-promo" data-mbox-id="promo" >
           <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
             <div class="item" style="background-image: url(static/assets/images/sliders/01.jpg);">
               <div class="container-fluid">
-                <div class="caption bg-color vertical-center text-left">
+
+                <div class=" caption bg-color vertical-center text-left"  >
                   <div class="slider-header ">Top Brands</div>
                   <div class="big-text "> New Collections 20% Off </div>
                   <div class="excerpt  hidden-xs"> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> </div>
@@ -1864,13 +1897,35 @@ displayEmail.textContent = window.myEmail;
           </div>
           <!-- /.owl-carousel --> 
         </div>
-        <script>$("#owl-main").owlCarousel({
+        <script>
+        //  let ele1=document.querySelector("div[data-mbox-id='promo']");
+        //  ele1.addClass("mbox-name-homepage-secondary-1");
+
+        $("#owl-main").owlCarousel({
           items: 1, // Number of items to display
           loop: false, // Whether the carousel should loop
           autoplay: false, // Disable auto-play by setting it to false
           // Other configuration options...
         });
         </script>
+        <script>
+          // Add class with jQuery
+          // document.querySelector("div[data-mbox-id='promo']").addClass("mbox-name-homepage-secondary-1");
+          // Call Target for regional mbox content and apply to the appropriate selector
+        adobe.target.getOffer({
+        "mbox": "promo",
+        "success": function(offer) {
+        adobe.target.applyOffer({
+        "mbox": "promo",
+        "selector": "div[data-mbox-id='promo']",
+        "offer": offer
+        });
+        },
+        "error": function(status, error) {
+        console.log('Error target', status, error);
+        }
+        });
+          </script>
         <!-- ========================================= SECTION – HERO : END ========================================= --> 
         
 
