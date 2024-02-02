@@ -26,6 +26,8 @@ digitalData = {
   }
 };
 window.appEventData = window.appEventData||[];
+window.adobeDataLayer = window.adobeDataLayer||[];
+
 
 const pageview = {
   'event': 'pageview',
@@ -190,6 +192,18 @@ getSession().then((emailId) => {
                   
     });
     console.log("test kurma");
+
+    window.adobeDataLayer.push(
+      {
+      'event': 'pageview',
+       'web': {
+      'pageName': resource,
+      "pageURL" : window.location.href,
+      "user" : "guest",
+      deviceType
+       }          
+      }
+    )
     
     
     

@@ -123,6 +123,20 @@ window.appEventData.splice(2,1,{
   'quantity':quant
 })
 
+window.adobedataLayer.push(
+
+  {
+    'event': 'addToCart',
+    'productInfo':{
+    'product_id':product_id,
+    'product_name':product_name,
+    'product_price':product_price,
+    'quantity':quant
+    }
+  }
+
+)
+
 addProductToCart();
 }
 
