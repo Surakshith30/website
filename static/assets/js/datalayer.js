@@ -90,6 +90,19 @@ window.appEventData.splice(0,0,{
               
 });
 
+window.adobeDataLayer.push(
+  {
+    'event': 'pageview',
+    'web':{
+    'pageName': resource,
+    'pageURL' : window.location.href,
+    "user" : "logged in",
+    deviceType,
+    'email': window.emailArray[0]  
+    }          
+  }
+)
+
   
 //segment dataLayer
   analytics.identify( {
