@@ -99,6 +99,19 @@ function setDataLayerValues(productName, productPrice, productID, productCategor
     'product_category': productCategory,
     'item_subcategory': subcategory
   })
+  
+  window.adobeDataLayer.push({
+    'event':'product view',
+    'page' :"product_page",
+    'productInfo':{
+    'product_name': productName,
+    'product_price': newProdPrice,
+    'product_id' : productID,
+    'product_category': productCategory,
+    'item_subcategory': subcategory
+     }
+  }
+  )
 }
 
 window.onload = setDataLayerValues(prodName ,newProdPrice, stockId , textBeforeSlash, subcategory);
