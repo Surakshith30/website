@@ -276,8 +276,24 @@ document.addEventListener("click", function(event) {
       'linkText':linkText,
       'linkurl':linkurl
     })
+    
+    window.adobeDataLayer.push(
+      {
+        "event": "click",
+        "eventInfo": {
+            "eventType": "web.webInteraction.linkClicks",
+            "Url":linkurl ,
+            "elementLabel": ""
+        },
+        "web": {
+            "webInteraction": {
+                "name": linkText,
+                "type": "other"
+            }
+        }
+    } 
+    )
 
-   
     
     window.location.href=event.target.href
   }
