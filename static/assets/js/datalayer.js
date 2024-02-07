@@ -54,6 +54,7 @@ const pageview = {
 // }
 
 window.dataLayer = window.dataLayer || [];
+let hashedEmail1 = [];
 
 window.emailArray = [];
 console.log(window.emailArray[0] ,"Array")
@@ -67,6 +68,8 @@ function getSession() {
 }
 
 function pushUserIdToDataLayer() {
+  
+
   // if(window.emailArray.length > 0 ){
     window.dataLayer.push({'event': 'user_id',"user_id": window.emailArray[0]});
   // }
@@ -87,8 +90,8 @@ window.appEventData.splice(0,0,{
   'pageURL' : window.location.href,
   "user" : "logged in",
   deviceType,
-  'email': window.emailArray[0]
-
+  'email': window.emailArray[0],
+  'hashedEmail':hashedEmail1[0]
               
 });
 
@@ -100,7 +103,9 @@ window.adobeDataLayer.push(
     'pageURL' : window.location.href,
     "user" : "logged in",
     deviceType,
-    'email': window.emailArray[0]  
+    'email': window.emailArray[0],
+    'hashedEmail':hashedEmail1[0]
+
     }          
   }
 )
@@ -334,5 +339,22 @@ else if(isMobile==true){
 }
 
 
-      
-   
+//hashed email
+async function hashEmail(email) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(email);
+  
+  const buffer = await crypto.subtle.digest('SHA-256', data);
+  
+  // Convert the buffer to a hexadecimal string
+  const hashedEmail = Array.from(new Uint8Array(buffer))
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('');
+  
+  return hashedEmail1.push(hashedEmail);
+}
+
+// Example
+const emailToHash = window.emailArray[0];
+hashEmail(emailToHash);
+  
